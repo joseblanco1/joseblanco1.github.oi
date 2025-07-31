@@ -1,0 +1,721 @@
+/* Cosmic Blog - Custom CSS */
+
+/* Root Variables */
+:root {
+    --cosmic-primary: #0a0a0a;
+    --cosmic-secondary: #1a1a2e;
+    --cosmic-accent: #6a4c93;
+    --cosmic-blue: #4cc9f0;
+    --cosmic-pink: #f72585;
+    --cosmic-white: #f8f9fa;
+    --cosmic-gray: #adb5bd;
+    --cosmic-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--cosmic-primary);
+    color: var(--cosmic-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, var(--cosmic-blue), var(--cosmic-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px rgba(76, 201, 240, 0.3);
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, var(--cosmic-blue), var(--cosmic-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--cosmic-blue);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Navigation */
+.cosmic-nav {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(76, 201, 240, 0.2);
+    transition: all 0.3s ease;
+}
+
+.cosmic-brand {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--cosmic-blue) !important;
+    text-decoration: none;
+}
+
+.navbar-nav .nav-link {
+    color: var(--cosmic-white) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--cosmic-blue) !important;
+    text-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--cosmic-blue);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+    box-shadow: 0 0 10px var(--cosmic-blue);
+}
+
+/* Language Toggle */
+.language-toggle .btn {
+    border: 1px solid var(--cosmic-blue);
+    color: var(--cosmic-blue);
+    transition: all 0.3s ease;
+}
+
+.language-toggle .btn:hover {
+    background: var(--cosmic-blue);
+    color: var(--cosmic-primary);
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.5);
+}
+
+/* Stars Animation */
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.stars, .stars2, .stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.stars {
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: zoom 20s infinite linear;
+}
+
+.stars2 {
+    background-image: 
+        radial-gradient(1px 1px at 40px 60px, #fff, transparent),
+        radial-gradient(1px 1px at 120px 10px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 170px 50px, #eee, transparent);
+    background-repeat: repeat;
+    background-size: 250px 120px;
+    animation: zoom 30s infinite linear;
+}
+
+.stars3 {
+    background-image: 
+        radial-gradient(1px 1px at 60px 80px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(2px 2px at 100px 20px, #fff, transparent),
+        radial-gradient(1px 1px at 180px 90px, rgba(255,255,255,0.8), transparent);
+    background-repeat: repeat;
+    background-size: 300px 150px;
+    animation: zoom 40s infinite linear;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    background: url('../images/cosmic-background.png') center/cover,
+                var(--cosmic-gradient);
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--cosmic-gray);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+}
+
+/* Page Header */
+.page-header {
+    min-height: 60vh;
+    background: url('../images/cosmic-background.png') center/cover,
+                var(--cosmic-gradient);
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--cosmic-gray);
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn-cosmic {
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-blue));
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cosmic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(106, 76, 147, 0.4);
+    color: white;
+}
+
+.btn-cosmic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-cosmic:hover::before {
+    left: 100%;
+}
+
+.btn-outline-cosmic {
+    background: transparent;
+    border: 2px solid var(--cosmic-blue);
+    color: var(--cosmic-blue);
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-outline-cosmic:hover {
+    background: var(--cosmic-blue);
+    color: var(--cosmic-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(76, 201, 240, 0.4);
+}
+
+/* Cards */
+.cosmic-card {
+    background: rgba(26, 26, 46, 0.8);
+    border: 1px solid rgba(76, 201, 240, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmic-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cosmic-blue), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cosmic-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cosmic-blue);
+    box-shadow: 0 15px 35px rgba(76, 201, 240, 0.2);
+}
+
+.cosmic-card:hover::before {
+    opacity: 1;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--cosmic-blue);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.card-icon.large {
+    font-size: 4rem;
+}
+
+/* Featured Section */
+.featured-section {
+    background: rgba(16, 33, 62, 0.3);
+    position: relative;
+}
+
+.section-subtitle {
+    color: var(--cosmic-gray);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+/* Links */
+.cosmic-link {
+    color: var(--cosmic-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cosmic-link:hover {
+    color: var(--cosmic-pink);
+    text-shadow: 0 0 10px rgba(247, 37, 133, 0.5);
+}
+
+.cosmic-link::after {
+    content: ' →';
+    transition: transform 0.3s ease;
+}
+
+.cosmic-link:hover::after {
+    transform: translateX(5px);
+}
+
+/* About Section */
+.about-section {
+    background: rgba(10, 10, 10, 0.8);
+}
+
+.about-card {
+    text-align: center;
+    height: 100%;
+}
+
+/* Cosmic Quote */
+.cosmic-quote {
+    background: rgba(26, 26, 46, 0.6);
+    border-left: 4px solid var(--cosmic-blue);
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.cosmic-quote blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--cosmic-white);
+    margin-bottom: 1rem;
+}
+
+.cosmic-quote .blockquote-footer {
+    color: var(--cosmic-blue);
+    font-weight: 600;
+}
+
+/* Fortune Section */
+.fortune-section {
+    background: rgba(10, 10, 10, 0.9);
+}
+
+.fortune-generator {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.fortune-btn {
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    margin: 2rem 0;
+}
+
+.fortune-result {
+    background: rgba(106, 76, 147, 0.2);
+    border: 1px solid var(--cosmic-accent);
+    border-radius: 15px;
+    padding: 2rem;
+    animation: fadeInUp 0.5s ease;
+}
+
+.fortune-text {
+    font-size: 1.2rem;
+    color: var(--cosmic-white);
+    text-align: center;
+}
+
+.fortune-text i {
+    color: var(--cosmic-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Zodiac Cards */
+.zodiac-card {
+    background: rgba(26, 26, 46, 0.8);
+    border: 1px solid rgba(76, 201, 240, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+}
+
+.zodiac-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--cosmic-blue);
+    box-shadow: 0 10px 25px rgba(76, 201, 240, 0.2);
+}
+
+.zodiac-icon {
+    font-size: 3rem;
+    color: var(--cosmic-blue);
+    margin-bottom: 1rem;
+}
+
+.zodiac-card h4 {
+    color: var(--cosmic-white);
+    margin-bottom: 0.5rem;
+}
+
+.zodiac-card p {
+    color: var(--cosmic-gray);
+    font-size: 0.9rem;
+}
+
+/* Lucky Numbers */
+.lucky-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.number-circle {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, var(--cosmic-accent), var(--cosmic-blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.number-circle:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(76, 201, 240, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(76, 201, 240, 0);
+    }
+}
+
+/* Personal Section */
+.personal-section {
+    background: rgba(10, 10, 10, 0.9);
+}
+
+.welcome-card {
+    background: rgba(26, 26, 46, 0.9);
+    border: 2px solid var(--cosmic-blue);
+}
+
+/* Tags */
+.cosmic-tags {
+    margin-top: 1rem;
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(76, 201, 240, 0.2);
+    color: var(--cosmic-blue);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 0.2rem;
+    border: 1px solid rgba(76, 201, 240, 0.3);
+}
+
+/* Posts */
+.cosmic-post {
+    background: rgba(26, 26, 46, 0.6);
+    border: 1px solid rgba(76, 201, 240, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.cosmic-post:hover {
+    transform: translateY(-3px);
+    border-color: var(--cosmic-blue);
+    box-shadow: 0 10px 20px rgba(76, 201, 240, 0.1);
+}
+
+.post-date {
+    color: var(--cosmic-gray);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.cosmic-post h4 {
+    color: var(--cosmic-blue);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.cosmic-post p {
+    color: var(--cosmic-gray);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Newsletter */
+.newsletter-card {
+    background: rgba(26, 26, 46, 0.9);
+    border: 2px solid var(--cosmic-accent);
+}
+
+.newsletter-form {
+    max-width: 400px;
+    margin: 2rem auto 0;
+}
+
+.newsletter-form .form-control {
+    background: rgba(26, 26, 46, 0.8);
+    border: 1px solid rgba(76, 201, 240, 0.3);
+    color: var(--cosmic-white);
+    border-radius: 25px 0 0 25px;
+}
+
+.newsletter-form .form-control:focus {
+    background: rgba(26, 26, 46, 0.9);
+    border-color: var(--cosmic-blue);
+    color: var(--cosmic-white);
+    box-shadow: 0 0 0 0.2rem rgba(76, 201, 240, 0.25);
+}
+
+.newsletter-form .btn {
+    border-radius: 0 25px 25px 0;
+}
+
+/* Footer */
+.cosmic-footer {
+    background: rgba(10, 10, 10, 0.95);
+    border-top: 1px solid rgba(76, 201, 240, 0.2);
+    margin-top: 3rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.social-link {
+    color: var(--cosmic-gray);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(76, 201, 240, 0.2);
+}
+
+.social-link:hover {
+    color: var(--cosmic-blue);
+    border-color: var(--cosmic-blue);
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .cosmic-card {
+        padding: 1.5rem;
+    }
+    
+    .lucky-numbers {
+        gap: 0.5rem;
+    }
+    
+    .number-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .btn-cosmic,
+    .btn-outline-cosmic {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .cosmic-card {
+        padding: 1rem;
+    }
+    
+    .card-icon {
+        font-size: 2rem;
+    }
+    
+    .card-icon.large {
+        font-size: 3rem;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cosmic-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cosmic-blue);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cosmic-pink);
+}
+
